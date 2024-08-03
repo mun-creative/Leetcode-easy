@@ -1,0 +1,35 @@
+//first approach
+//  n teams are given .bascally if a match is played one team is the winner and another team is elimitaed
+// 1 match =1 winner=1 loser (eliminated) 
+// if n teams are there and 1 winner is there then n-1 teams will be eliminated  and for n-1 teams to be eliminated they would have played n-1 matches
+class Solution {
+    public int numberOfMatches(int n) {
+        return n-1;
+    }
+}
+
+
+//second approach
+//log(n)
+//follow the simulation given in question
+
+class Solution {
+    public int numberOfMatches(int n) {
+        int matches=0;
+        while(n>1)
+        {
+            if(n%2==0)
+            {
+                matches+=n/2;
+                n=n/2;
+            }
+            else
+            {
+                matches+=(n-1)/2;
+                n=(n-1)/2+1;
+            }
+        }
+        return matches;
+
+    }
+}

@@ -1,0 +1,27 @@
+class Solution {
+    public int buyChoco(int[] prices, int money) {
+        int smallest=Integer.MAX_VALUE;
+        int sSmallest=Integer.MAX_VALUE;
+        for(int price=0;price<prices.length;price++)
+        {
+            if(prices[price]<smallest)
+            {
+                sSmallest=smallest;
+                smallest=prices[price];
+            }
+            else
+            {
+                sSmallest=Math.min(sSmallest,prices[price]);
+            }
+        }
+        if(smallest+sSmallest>money)
+        {
+            return money;
+        }
+        else
+        {
+            return money-(smallest+sSmallest);
+        }
+        
+    }
+}
